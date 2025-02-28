@@ -58,8 +58,8 @@ The project follows a modular and scalable architecture with well-separated conc
 
 1. **Clone repository**:
    ```bash
-   git clone https://github.com/ZdjelarFilip/UserAuthService
-   cd UserAuthService
+   git clone https://github.com/ZdjelarFilip/UserAuthServiceSolution
+   cd UserAuthServiceSolution
    ```
 
 2. **Restore dependencies**:
@@ -84,7 +84,7 @@ The project follows a modular and scalable architecture with well-separated conc
    dotnet test UserAuthService.Tests/UserAuthService.Tests.csproj
    ```
 
-The app will be accessible at `http://localhost:5250` (Swagger)
+The app will be accessible at `http://localhost:5025` (Swagger)
 
 
 ## API Endpoints
@@ -170,6 +170,21 @@ API Keys table. Here you can use the **Key** to validate in Swagger.
 Users table. Here you can use the Users data and their PasswordHashes.
 
 ![Users tbl](https://i.imgur.com/PZlPhUD.png)
+
+
+## Logging
+
+Logging is done with ApiLoggingMiddleware in the following format and is saved in a log file (in the folder UserAuthService/Logs/) every single day:
+
+        _logger.LogInformation("INFO | {Time} | Client IP: {ClientIp} | Client: {ClientName} |" +
+            " Host: {HostName} | API Method: {Method} {Path} | Request Params: {QueryParams} |" +
+            " Message: Request received",
+
+
+For real-time testing we can also watch the logs in the console below.
+
+![Logging in console](https://i.imgur.com/29DIHeU.png)
+
 
 ## Tests
 ![Tests ran](https://i.imgur.com/okmzYZ4.png)
